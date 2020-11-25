@@ -54,16 +54,14 @@ public class SparseVector implements IVector {
     }
 
     @Override
-    public String demonstrate(IDrawer drawer, boolean isBorder) {
-        StringBuilder vectStr = new StringBuilder();
+    public void demonstrate(IDrawer drawer, boolean isBorder) {
         List<Integer> elList = new ArrayList<>();
         for (int i = 0; i < dimension; i++) {
             if (elements.get(i) != null) {
                 elList.add(elements.get(i));
             } else elList.add(null);
         }
-        vectStr.append(drawer.drawMatrixLine(elList, isBorder));
-        return vectStr.toString();
+        drawer.drawMatrixLine(elList, isBorder);
     }
 
     @Override

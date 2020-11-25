@@ -8,9 +8,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <right>
-      <Pane prefHeight="400.0" prefWidth="411.0" BorderPane.alignment="CENTER">
+      <Pane fx:id="scene" prefHeight="400.0" prefWidth="411.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="console" disable="true" layoutX="6.0" prefHeight="339.0" prefWidth="399.0" wrapText="true" />
+            <TextArea fx:id="console" disable="true" layoutX="6.0" prefHeight="339.0" prefWidth="399.0" visible="false" wrapText="true" />
          </children>
       </Pane>
    </right>

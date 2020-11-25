@@ -10,5 +10,5 @@ public interface IMatrix {
     void addAll(List<IVector> vectors);
     int getRowCount();
     int getColumnCount();
-    String demonstrate(IDrawer drawer, boolean isBorder);
+    void demonstrate(IDrawer drawer, boolean isBorder);
 }

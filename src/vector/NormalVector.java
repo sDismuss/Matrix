@@ -58,14 +58,12 @@ public class NormalVector implements IVector {
     }
 
     @Override
-    public String demonstrate(IDrawer drawer, boolean isBorder) {
-        StringBuilder vectStr = new StringBuilder();
+    public void demonstrate(IDrawer drawer, boolean isBorder) {
         List<Integer> vectEl = new ArrayList<>();
         for (Integer el: elements) {
             vectEl.add(el);
         }
-        vectStr.append(drawer.drawMatrixLine(vectEl, isBorder));
-        return vectStr.toString();
+        drawer.drawMatrixLine(vectEl, isBorder);
     }
 
     @Override

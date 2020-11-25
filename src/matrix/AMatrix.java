@@ -61,21 +61,19 @@ public abstract class AMatrix implements IMatrix {
     }
 
     @Override
-    public String demonstrate(IDrawer drawer, boolean isBorder) {     //boolean isBorder) {
-        StringBuilder matrStr = new StringBuilder();
+    public void demonstrate(IDrawer drawer, boolean isBorder) {
+        drawer.clear();
         if (isBorder) {
-            String bordStr = drawer.drawHLineBorder(this.getColumnCount());
-            matrStr.append(bordStr);
+            drawer.drawHLineBorder(this.getColumnCount());
             for (IVector vect : vectors) {
-                matrStr.append(vect.demonstrate(drawer, isBorder));
-                matrStr.append(bordStr);
+                vect.demonstrate(drawer, isBorder);
+                drawer.drawHLineBorder(this.getColumnCount());
             }
         } else {
             for (IVector vect : vectors) {
-                matrStr.append(vect.demonstrate(drawer, isBorder));
+                vect.demonstrate(drawer, isBorder);
             }
         }
-        return matrStr.toString();
     }
 
     protected abstract IVector createVector(int columnCount);

@@ -17,5 +17,5 @@ public interface IVector {
 
     int getDimension();
 
-    String demonstrate(IDrawer drawer, boolean isBorder);
+    void demonstrate(IDrawer drawer, boolean isBorder);
 }
