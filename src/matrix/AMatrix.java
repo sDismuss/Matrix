@@ -64,7 +64,7 @@ public abstract class AMatrix implements IMatrix {
     public String demonstrate(IDrawer drawer, boolean isBorder) {     //boolean isBorder) {
         StringBuilder matrStr = new StringBuilder();
         if (isBorder) {
-            String bordStr = drawer.drawHLineBorder(column);
+            String bordStr = drawer.drawHLineBorder(this.getColumnCount());
             matrStr.append(bordStr);
             for (IVector vect : vectors) {
                 matrStr.append(vect.demonstrate(drawer, isBorder));
