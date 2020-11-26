@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Line;
 import matrix.IMatrix;
 import matrix.NormalMatrix;
 import matrix.SparseMatrix;
@@ -37,10 +36,15 @@ public class Controller {
         boolean bIsBorder = isBorder.isSelected();
 
         DrawerConsole drawerConsole = new DrawerConsole();
-        DrawerPane drawerPane = new DrawerPane(scene);
+        DrawerPane drawerPane = new DrawerPane();
 
-        nMatrix.demonstrate(drawerConsole, bIsBorder);
-        nMatrix.demonstrate(drawerPane, bIsBorder);
+        if(nMatrix.demonstrate(drawerConsole, bIsBorder) != null) {
+            scene.getChildren().addAll(nMatrix.demonstrate(drawerConsole, bIsBorder));
+        }
+        if (nMatrix.demonstrate(drawerPane, bIsBorder) != null) {
+            scene.getChildren().addAll(nMatrix.demonstrate(drawerPane, bIsBorder));
+        }
+
     }
 
     @FXML
@@ -50,9 +54,13 @@ public class Controller {
         boolean bIsBorder = isBorder.isSelected();
 
         DrawerConsole drawerConsole = new DrawerConsole();
-        DrawerPane drawerPane = new DrawerPane(scene);
+        DrawerPane drawerPane = new DrawerPane();
 
-        sMatrix.demonstrate(drawerConsole, bIsBorder);
-        sMatrix.demonstrate(drawerPane, bIsBorder);
+        if(sMatrix.demonstrate(drawerConsole, bIsBorder) != null) {
+            scene.getChildren().addAll(sMatrix.demonstrate(drawerConsole, bIsBorder));
+        }
+        if (sMatrix.demonstrate(drawerPane, bIsBorder) != null) {
+            scene.getChildren().addAll(sMatrix.demonstrate(drawerPane, bIsBorder));
+        }
     }
 }

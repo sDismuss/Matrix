@@ -1,6 +1,9 @@
 package matrix;
 
 import drawer.IDrawer;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
+import javafx.scene.layout.Pane;
 import vector.IVector;
 
 import java.util.ArrayList;
@@ -61,7 +64,7 @@ public abstract class AMatrix implements IMatrix {
     }
 
     @Override
-    public void demonstrate(IDrawer drawer, boolean isBorder) {
+    public ObservableList<Node> demonstrate(IDrawer drawer, boolean isBorder) {
         drawer.clear();
         if (isBorder) {
             drawer.drawHLineBorder(this.getColumnCount());
@@ -74,6 +77,7 @@ public abstract class AMatrix implements IMatrix {
                 vect.demonstrate(drawer, isBorder);
             }
         }
+        return drawer.drawAll();
     }
 
     protected abstract IVector createVector(int columnCount);
