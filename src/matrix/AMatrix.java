@@ -23,7 +23,17 @@ public abstract class AMatrix implements IMatrix {
     }
 
     public List<IVector> getAll() {
-        return new ArrayList<>(vectors);
+        List<IVector> iVectors = new ArrayList<>();
+        for (IVector vector: vectors) {
+            IVector iVector = createVector(vector.getDimension());
+            for (int i = 0; i < vector.getDimension(); i++) {
+                if (vector.getEl(i) != -1) {
+                    iVector.addEl(vector.getEl(i), i);
+                }
+            }
+            iVectors.add(iVector);
+        }
+        return iVectors;
     }
 
     public void addAll(List<IVector> vectors) {

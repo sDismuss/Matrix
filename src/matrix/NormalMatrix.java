@@ -13,5 +13,4 @@ public class NormalMatrix extends AMatrix {
     protected IVector createVector(int columnCount) {
         return new NormalVector(columnCount);
     }
-
 }

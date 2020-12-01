@@ -1,6 +1,7 @@
 package matrix;
 
 import vector.IVector;
+import vector.NormalVector;
 import vector.SparseVector;
 
 public class SparseMatrix extends AMatrix {
