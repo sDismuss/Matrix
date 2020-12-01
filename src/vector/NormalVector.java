@@ -18,8 +18,7 @@ public class NormalVector extends AVector {
 
     @Override
     public int getEl(int pos) {
-        int el = this.elements.get(pos);
-        return el;
+        return this.elements.get(pos);
     }
 
     @Override
@@ -57,7 +56,7 @@ public class NormalVector extends AVector {
     @Override
     public String toString() {
         return "NormalVector{" +
-                "elements=" + elements.toString() +
+                "elements=" + this.getAll().toString() +
                 ", dimension=" + super.getDimension() +
                 '}';
     }

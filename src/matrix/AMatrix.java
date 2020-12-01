@@ -42,19 +42,17 @@ public abstract class AMatrix implements IMatrix {
     }
 
     public int getRowCount() {
-        int cRow = row;
-        return cRow;
+        return row;
     }
 
     public int getColumnCount() {
-        int cColumn = column;
-        return cColumn;
+        return column;
     }
 
     @Override
     public String toString() {
         return "Matrix{" +
-                "vectors=" + vectors +
+                "vectors=" + this.getAll() +
                 '}';
     }
 

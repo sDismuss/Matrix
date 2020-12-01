@@ -9,7 +9,6 @@ public abstract class AVector implements IVector{
 
     @Override
     public int getDimension() {
-        int cDimension = dimension;
-        return cDimension;
+        return dimension;
     }
 }

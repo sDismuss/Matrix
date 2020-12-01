@@ -63,7 +63,7 @@ public class SparseVector extends AVector {
     @Override
     public String toString() {
         return "SparseVector{" +
-                "elements=" + elements.toString() +
+                "elements=" + this.getAll().toString() +
                 ", dimension=" + super.getDimension() +
                 '}';
     }
