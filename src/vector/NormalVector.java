@@ -5,12 +5,11 @@ import drawer.IDrawer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NormalVector implements IVector {
+public class NormalVector extends AVector {
     private List<Integer> elements;
-    private int dimension;
 
     public NormalVector(int dimension) {
-        this.dimension = dimension;
+        super(dimension);
         this.elements = new ArrayList<>();
         for (int i = 0; i < dimension; i++) {
             elements.add(0);
@@ -19,7 +18,8 @@ public class NormalVector implements IVector {
 
     @Override
     public int getEl(int pos) {
-        return this.elements.get(pos);
+        int el = this.elements.get(pos);
+        return el;
     }
 
     @Override
@@ -29,11 +29,7 @@ public class NormalVector implements IVector {
 
     @Override
     public List<Integer> getAll() {
-        List<Integer> nElements = new ArrayList<>();
-        for (Integer num : elements) {
-            nElements.add(num);
-        }
-        return nElements;
+        return new ArrayList<>(elements);
     }
 
     @Override
@@ -53,16 +49,8 @@ public class NormalVector implements IVector {
     }
 
     @Override
-    public int getDimension() {
-        return dimension;
-    }
-
-    @Override
     public void demonstrate(IDrawer drawer, boolean isBorder) {
-        List<Integer> vectEl = new ArrayList<>();
-        for (Integer el: elements) {
-            vectEl.add(el);
-        }
+        List<Integer> vectEl = new ArrayList<>(elements);
         drawer.drawMatrixLine(vectEl, isBorder);
     }
 
@@ -70,7 +58,7 @@ public class NormalVector implements IVector {
     public String toString() {
         return "NormalVector{" +
                 "elements=" + elements.toString() +
-                ", dimension=" + dimension +
+                ", dimension=" + super.getDimension() +
                 '}';
     }
 }

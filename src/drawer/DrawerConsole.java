@@ -1,16 +1,9 @@
 package drawer;
 
-import com.sun.javafx.collections.ObservableListWrapper;
-import javafx.beans.InvalidationListener;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
-import javafx.scene.layout.Pane;
 
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 public class DrawerConsole extends ADrawer {
     @Override
@@ -46,14 +39,16 @@ public class DrawerConsole extends ADrawer {
     }
 
     @Override
-    public void drawHLineBorder(int countCol) {
-        StringBuilder border = new StringBuilder();
-        border.append(" ");
-        for (int i = 0; i < countCol; i++) {
-            if (i != countCol - 1)
-                border.append("------");
-            else border.append("-----\n");
+    public void drawHLineBorder(int countCol, boolean isBorder) {
+        if (isBorder) {
+            StringBuilder border = new StringBuilder();
+            border.append(" ");
+            for (int i = 0; i < countCol; i++) {
+                if (i != countCol - 1)
+                    border.append("------");
+                else border.append("-----\n");
+            }
+            System.out.println(border.toString());
         }
-        System.out.println(border.toString());
     }
 }

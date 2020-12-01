@@ -3,7 +3,6 @@ package matrix;
 import drawer.IDrawer;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
-import javafx.scene.layout.Pane;
 import vector.IVector;
 
 import java.util.ArrayList;
@@ -24,20 +23,14 @@ public abstract class AMatrix implements IMatrix {
     }
 
     public List<IVector> getAll() {
-        List<IVector> iVectors = new ArrayList<>();
-        for (IVector vector : vectors) {
-            iVectors.add(vector);
-        }
-        return iVectors;
+        return new ArrayList<>(vectors);
     }
 
     public void addAll(List<IVector> vectors) {
         this.vectors = new ArrayList<>();
         this.setRow(vectors.size());
         this.setColumn(vectors.get(0).getDimension());
-        for (IVector vector : vectors) {
-            this.vectors.add(vector);
-        }
+        this.vectors.addAll(vectors);
     }
 
     public void setRow(int row) {
@@ -49,11 +42,13 @@ public abstract class AMatrix implements IMatrix {
     }
 
     public int getRowCount() {
-        return row;
+        int cRow = row;
+        return cRow;
     }
 
     public int getColumnCount() {
-        return column;
+        int cColumn = column;
+        return cColumn;
     }
 
     @Override
@@ -66,16 +61,10 @@ public abstract class AMatrix implements IMatrix {
     @Override
     public ObservableList<Node> demonstrate(IDrawer drawer, boolean isBorder) {
         drawer.clear();
-        if (isBorder) {
-            drawer.drawHLineBorder(this.getColumnCount());
-            for (IVector vect : vectors) {
-                vect.demonstrate(drawer, isBorder);
-                drawer.drawHLineBorder(this.getColumnCount());
-            }
-        } else {
-            for (IVector vect : vectors) {
-                vect.demonstrate(drawer, isBorder);
-            }
+        drawer.drawHLineBorder(this.getColumnCount(), isBorder);
+        for (IVector vect : vectors) {
+            vect.demonstrate(drawer, isBorder);
+            drawer.drawHLineBorder(this.getColumnCount(), isBorder);
         }
         return drawer.drawAll();
     }

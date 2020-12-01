@@ -38,7 +38,9 @@ public class Controller {
         DrawerConsole drawerConsole = new DrawerConsole();
         DrawerPane drawerPane = new DrawerPane();
 
-        if(nMatrix.demonstrate(drawerConsole, bIsBorder) != null) {
+        scene.getChildren().clear();
+
+        if (nMatrix.demonstrate(drawerConsole, bIsBorder) != null) {
             scene.getChildren().addAll(nMatrix.demonstrate(drawerConsole, bIsBorder));
         }
         if (nMatrix.demonstrate(drawerPane, bIsBorder) != null) {
@@ -56,7 +58,9 @@ public class Controller {
         DrawerConsole drawerConsole = new DrawerConsole();
         DrawerPane drawerPane = new DrawerPane();
 
-        if(sMatrix.demonstrate(drawerConsole, bIsBorder) != null) {
+        scene.getChildren().clear();
+
+        if (sMatrix.demonstrate(drawerConsole, bIsBorder) != null) {
             scene.getChildren().addAll(sMatrix.demonstrate(drawerConsole, bIsBorder));
         }
         if (sMatrix.demonstrate(drawerPane, bIsBorder) != null) {

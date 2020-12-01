@@ -5,7 +5,6 @@ import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
-import sample.Controller;
 
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class DrawerPane extends ADrawer {
 
     @Override
     public void clear() {
-        pane.getChildren().clear();
+        this.pane.getChildren().clear();
         X = this.pane.getLayoutX();
         Y = this.pane.getLayoutY();
     }
@@ -37,7 +36,7 @@ public class DrawerPane extends ADrawer {
 
     @Override
     public void drawMatrixLine(List<Integer> elements, boolean isBorder) {
-        if(isBorder) {
+        if (isBorder) {
             Line leftLine = new Line(X, Y, X, Y + HEIGHTTA);
             pane.getChildren().add(leftLine);
         }
@@ -52,21 +51,20 @@ public class DrawerPane extends ADrawer {
                 textArea.setText(el.toString());
             }
             x = x + WIDTHTA;
-            Line rightLine = new Line(x, Y, x, Y+HEIGHTTA);
-            if(isBorder) {
+            if (isBorder) {
+                Line rightLine = new Line(x, Y, x, Y + HEIGHTTA);
                 pane.getChildren().addAll(rightLine, textArea);
-            }
-            else pane.getChildren().add(textArea);
+            } else pane.getChildren().add(textArea);
         }
         this.Y = this.Y + HEIGHTTA;
     }
 
     @Override
-    public void drawHLineBorder(int countCol) {
-        int length = WIDTHTA * countCol;
-        Line line = new Line(X, Y, X + length, Y);
-        pane.getChildren().addAll(line);
+    public void drawHLineBorder(int countCol, boolean isBorder) {
+        if (isBorder) {
+            int length = WIDTHTA * countCol;
+            Line line = new Line(X, Y, X + length, Y);
+            pane.getChildren().addAll(line);
+        }
     }
-
-
 }

@@ -7,20 +7,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SparseVector implements IVector {
+public class SparseVector extends AVector {
     private Map<Integer, Integer> elements;
-    private int dimension;
 
     public SparseVector(int dimension) {
-        this.dimension = dimension;
+        super(dimension);
         this.elements = new HashMap<>();
     }
 
     @Override
     public int getEl(int pos) {
-        if (this.elements.get(pos) == null) {
-            return -1;
-        } else return this.elements.get(pos);
+        int el = -1;
+        if (this.elements.get(pos) != null) {
+            el = this.elements.get(pos);
+        }
+        return el;
     }
 
     @Override
@@ -35,7 +36,7 @@ public class SparseVector implements IVector {
 
     @Override
     public int zeroCount() {
-        return this.dimension - elements.size();
+        return super.getDimension() - elements.size();
     }
 
     @Override
@@ -49,14 +50,9 @@ public class SparseVector implements IVector {
     }
 
     @Override
-    public int getDimension() {
-        return dimension;
-    }
-
-    @Override
     public void demonstrate(IDrawer drawer, boolean isBorder) {
         List<Integer> elList = new ArrayList<>();
-        for (int i = 0; i < dimension; i++) {
+        for (int i = 0; i < super.getDimension(); i++) {
             if (elements.get(i) != null) {
                 elList.add(elements.get(i));
             } else elList.add(null);
@@ -68,7 +64,7 @@ public class SparseVector implements IVector {
     public String toString() {
         return "SparseVector{" +
                 "elements=" + elements.toString() +
-                ", dimension=" + dimension +
+                ", dimension=" + super.getDimension() +
                 '}';
     }
 }
